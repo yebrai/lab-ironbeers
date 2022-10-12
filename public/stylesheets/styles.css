@@ -16,6 +16,7 @@ nav {
     padding-left: 6vh;
     box-shadow: 0 2px 5px #888888;
     border-radius: 2px;
+    margin-bottom: 3vh;
 }
 
 nav a {
@@ -56,15 +57,6 @@ footer {
     box-shadow: 2px 4px 5px #888888;
 }
 
-#beers-container {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap:wrap;
-    justify-content: center;
-    height: 20vh;
-
-}
 
 .a-beers{
     text-decoration: none;
