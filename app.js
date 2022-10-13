@@ -19,11 +19,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/beers', (req, res) => {
-  punkAPI
-    .getBeers()
+  punkAPI.getBeers()
     .then(response => {
       res.render('beers.hbs', {
-        response: response
+        allTheBeers: response
       });
     })
     .catch(error => {
@@ -32,10 +31,11 @@ app.get('/beers', (req, res) => {
 });
 
 app.get('/random-beer', (req, res) => {
-  punkAPI
-    .getRandom()
+  punkAPI.getRandom()
     .then(response => {
-      res.render('random-beer.hbs', { response });
+      res.render('random-beer.hbs', { 
+        randomBeer: response[0]
+      });
     })
     .catch(error => {
       console.log(error);
@@ -44,12 +44,11 @@ app.get('/random-beer', (req, res) => {
 
 app.get('/beers/:beer', (req, res) => {
   let { beer } = req.params;
-  punkAPI
-    .getBeer(beer)
+  punkAPI.getBeer(beer)
     .then(response => {
       console.log(response);
       res.render('selectedBeer.hbs', {
-        response
+        selectedBeer: response
       });
     })
     .catch(error => {
