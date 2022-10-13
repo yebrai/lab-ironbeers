@@ -10,6 +10,8 @@ const punkAPI = new PunkAPIWrapper();
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
+
+// Partials reg
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -30,6 +32,8 @@ app.get('/beers', (req, res) => {
     });
 });
 
+
+//.getRandom gives an array with 1 obj
 app.get('/random-beer', (req, res) => {
   punkAPI.getRandom()
     .then(response => {
@@ -42,6 +46,8 @@ app.get('/random-beer', (req, res) => {
     });
 });
 
+//:beer give a "id" property from beerpartial
+//punkAPI.getBeer(beer) give a beer from id
 app.get('/beers/:beer', (req, res) => {
   let { beer } = req.params;
   punkAPI.getBeer(beer)
